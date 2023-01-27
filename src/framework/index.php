@@ -4,4 +4,9 @@
 
 require __DIR__ . '/bootstrap.php';
 
-$app->main($_REQUEST);
+if(in_array(php_sapi_name(), ['fpm-fcgi'])){
+    $app->main($_REQUEST);
+}
+else{
+    
+}
