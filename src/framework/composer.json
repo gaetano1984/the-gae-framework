@@ -9,6 +9,7 @@
         }
         ,"files": [
             "System/Util.php"
+            ,"System/Routes.php"
         ]
     }
 }

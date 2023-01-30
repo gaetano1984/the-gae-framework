@@ -5,7 +5,8 @@
 require __DIR__ . '/bootstrap.php';
 
 if(in_array(php_sapi_name(), ['fpm-fcgi'])){
-    $app->main($_REQUEST);
+    $app->buildRoutes($_REQUEST);
+    // $app->main($_REQUEST);
 }
 else{
     

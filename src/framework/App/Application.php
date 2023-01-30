@@ -16,4 +16,7 @@ class Application extends Container{
         $instance = $this->get("Controllers".$class."Controller::class");
         $this->executeMethod($instance, $method);
     }
+    public function buildRoutes($request){
+        $r = new Routes();
+    }
 }

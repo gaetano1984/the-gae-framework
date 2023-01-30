@@ -14,5 +14,8 @@
             $res = $this->productService->get($id);
             echo $res;
         }
+        public function post($id){
+            return 1;
+        }
     }
 
