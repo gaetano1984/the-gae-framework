@@ -7,7 +7,7 @@
         public static $routes = [];
         public function __construct(){
             $web_routes = include('routes/web.php');
-            $routes = array_map(function($w){
+            self::$routes = array_map(function($w){
                 return [
                     'url' => $w['url']
                     ,'callback' => $w['callback']
@@ -15,7 +15,7 @@
                 ];
             }, $web_routes);
         }
-        
+
         public static function get($url, $callback){
             return self::addRoute($url, $callback, 'GET');
         }
@@ -30,5 +30,9 @@
                 ,'callback' => $callback
                 ,'method' => $method
             ];
+        }
+
+        public static function getRoutes(){
+            return self::$routes;
         }
     }

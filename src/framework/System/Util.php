@@ -5,15 +5,14 @@
             foreach($var as $v){
                 echo "<pre style=\"background-color: black; color: green; padding: 10px;\">";
 
-                    if(is_string($var)){
-                        echo $var;
+                    if(is_string($v)){
+                        echo $v;
                     }
                     else{
-                        var_dump($var);
+                        var_dump($v);
                     }
                     
                 echo "</pre>";
             }
-            die();
         }
     }
