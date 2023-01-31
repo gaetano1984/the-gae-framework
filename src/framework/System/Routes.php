@@ -20,7 +20,7 @@
             return self::addRoute($url, $callback, 'GET');
         }
 
-        public function post($route){
+        public function post($url, $callback){
             return self::addRoute($url, $callback, 'POST');
         }
 
@@ -39,7 +39,10 @@
         public static function checkRoutes($tmp_route, $method){
             $check = false;
             foreach(self::getRoutes() as $route){
-                if($route['url']==$tmp_route && $route['method']==$method){
+                if($route['url']==$tmp_route){
+                    if($route['method']!=$method){
+                        dd("405, method not allowed");
+                    }
                     $check = TRUE;
                     break;
                 }
