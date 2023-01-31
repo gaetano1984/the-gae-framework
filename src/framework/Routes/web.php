@@ -2,5 +2,5 @@
 
     return [
         self::get('/product/get', 'ProductController@get')
-        ,self::get('/product/post', 'ProductController@post')
+        ,self::post('/product/post', 'ProductController@post')
     ];

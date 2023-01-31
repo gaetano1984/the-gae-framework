@@ -11,7 +11,7 @@
                 return [
                     'url' => $w['url']
                     ,'callback' => $w['callback']
-                    ,'mehod' => $w['method']
+                    ,'method' => $w['method']
                 ];
             }, $web_routes);
         }
@@ -34,5 +34,31 @@
 
         public static function getRoutes(){
             return self::$routes;
+        }
+
+        public static function checkRoutes($tmp_route, $method){
+            $check = false;
+            foreach(self::getRoutes() as $route){
+                if($route['url']==$tmp_route && $route['method']==$method){
+                    $check = TRUE;
+                    break;
+                }
+            }
+            return $check;
+        }
+
+        public static function getCallBack($route, $method){
+            $callback =  null;
+            foreach(self::getRoutes() as $tmp_route){
+                if($tmp_route['url']==strtolower($route) && $tmp_route['method']==$method){
+                    $callback = $tmp_route['callback'];
+                }
+            }
+            $callback = explode('@', $callback);
+            $callback = [
+                'class' => $callback[0]
+                ,'method' => $callback[1]
+            ];
+            return $callback;
         }
     }
